@@ -1,0 +1,63 @@
+{
+  "name": "vue-scroll-refresh-load",
+  "version": "0.1.1",
+  "description": "A better-scroll - based drop-down refresh, pull-up load Vue plug-in(一个基于better-scroll的下拉刷新、上拉加载Vue插件)",
+  "main": "lib/vue-scroll-refresh-load.min.js",
+  "author": {
+    "name": "hearth_learning_money",
+    "email": "941477276@qq.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/941477276/vue-scroll-refresh-load.git"
+  },
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "prod": "node build.js",
+    "lint": "vue-cli-service lint"
+  },
+  "keywords": [
+    "better scroll",
+    "pulldown refresh",
+    "vue",
+    "pullup load",
+    "scroll",
+    "vue better scroll",
+    "vue country international",
+    "上拉加载",
+    "下拉刷新",
+    "滚动条"
+  ],
+  "homepage": "https://github.com/941477276/vue-scroll-refresh-load#readme",
+  "dependencies": {
+    "@better-scroll/core": "2.0.0-beta.2",
+    "@better-scroll/nested-scroll": "2.0.0-beta.2",
+    "@better-scroll/pull-down": "2.0.0-beta.2",
+    "@better-scroll/pull-up": "2.0.0-beta.2",
+    "@better-scroll/scroll-bar": "2.0.0-beta.2",
+    "core-js": "^2.6.5",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.11.0",
+    "@vue/cli-plugin-eslint": "^3.11.0",
+    "@vue/cli-service": "^3.11.0",
+    "@vue/eslint-config-prettier": "^5.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.6",
+    "eslint": "^5.16.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "less": "^3.0.4",
+    "less-loader": "^5.0.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "prettier": "^1.18.2",
+    "style-loader": "^1.0.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "vue-loader": "^15.7.1",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.40.2"
+  }
+}

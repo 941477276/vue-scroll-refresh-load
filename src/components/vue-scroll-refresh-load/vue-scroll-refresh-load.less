@@ -1,0 +1,84 @@
+.vue-scroll-refresh-load{
+  position: relative;
+  height: 100%;
+  /*border: 1px solid #ccc;*/
+  box-sizing: border-box;
+  .vue-scroll-wrapper{
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .pulldown-tip{
+    position: absolute;
+    width: 100%;
+    padding: 10px 15px;
+    text-align: center;
+    color: #969799;
+    font-size: 14px;
+    transform: translateY(-100%) translateZ(0);
+    box-sizing: border-box;
+  }
+  .pullup-tip{
+    font-size: 14px;
+    color: #969799;
+    text-align: center;
+    box-sizing: border-box;
+    .scroll-loading-wrap{
+      padding: 10px 15px;
+      box-sizing: border-box;
+    }
+  }
+  .pullup-no-more-data,
+  .pullup-load-error{
+    position: relative;
+    padding: 10px 15px;
+    box-sizing: border-box;
+  }
+
+  /*loading 图 start*/
+  .scroll-loading{
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    color: rgb(201, 201, 201);
+  }
+
+  .loading-circular {
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+    circle {
+      animation: circular 1.5s ease-in-out infinite;
+      stroke: currentColor;
+      stroke-width: 3;
+      stroke-linecap: round;
+    }
+  }
+
+  .scroll-loading-text{
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+    box-sizing: border-box;
+  }
+  /*loading 图 end*/
+
+  @keyframes circular {
+    0% {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: -40;
+    }
+    100% {
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: -120;
+    }
+  }
+}
