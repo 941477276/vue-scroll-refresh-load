@@ -131,7 +131,8 @@ export default {
       if(this.pullUpConfig){
         this.bScroll.on('pullingUp', this._pullingUpHandler);
       }
-      (typeof cb === 'function') && cb();
+      this.$emit('onInit', this.bScroll);
+      (typeof cb === 'function') && cb(this.bScroll);
       return this.bScroll;
     },
     // 刷新better-scroll
