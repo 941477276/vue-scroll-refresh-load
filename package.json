@@ -1,6 +1,6 @@
 {
   "name": "vue-scroll-refresh-load",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A better-scroll - based drop-down refresh, pull-up load Vue plug-in(一个基于better-scroll的下拉刷新、上拉加载Vue插件)",
   "main": "lib/vue-scroll-refresh-load.min.js",
   "author": {

@@ -81,6 +81,10 @@ export default {
     autoInit: { // 是否自动初始化 better-scroll
       type: Boolean,
       default: true
+    },
+    disabled: { // 是否禁用滚动
+      type: Boolean,
+      default: false
     }
   },
   data(){
@@ -99,8 +103,12 @@ export default {
     };
   },
   methods: {
-    // 初始化滚动条
-    initScroll(){
+    /**
+     * 初始化滚动条
+     * @param cb 初始化完成后的回调函数
+     * @returns {BScroll | BScroll}
+     */
+    initScroll(cb){
       if(this.bScroll){
         console.error('better-scroll已经初始化，请勿重复初始化！');
         return;
@@ -121,8 +129,9 @@ export default {
         this.bScroll.on('pullingDown', this._pullingDownHandler);
       }
       if(this.pullUpConfig){
-        this.bScroll.on('pullingUp', this._pullingUpHandler)
+        this.bScroll.on('pullingUp', this._pullingUpHandler);
       }
+      (typeof cb === 'function') && cb();
       return this.bScroll;
     },
     // 刷新better-scroll
@@ -134,6 +143,61 @@ export default {
         }, 100);
       }else{
         console.error('better-scroll未初始化！');
+      }
+    },
+    // 启用better scroll
+    enable(){
+      if(this.bScroll){
+        this.bScroll.enable();
+      }
+    },
+    // 禁用better scroll
+    disable(){
+      if(this.bScroll){
+        this.bScroll.disable();
+      }
+    },
+    // 销毁better scroll
+    destroy(){
+      if(this.bScroll){
+        this.bScroll.destroy();
+      }
+    },
+    /**
+     * 滚动到指定的位置
+     * @param x {Number} x 横轴坐标（单位 px）
+     * @param y {Number} y 纵轴坐标（单位 px）
+     * @param time {Number} time 滚动动画执行的时长（单位 ms）
+     * @param easing {Object} easing 缓动函数，一般不建议修改，如果想修改，参考源码中的 ease.js 里的写法
+     */
+    scrollTo(x, y, time, easing){
+      if(this.bScroll){
+        this.bScroll.scrollTo(x, y, time, easing);
+      }
+    },
+    /**
+     * 相对于当前位置偏移滚动 x,y 的距离。
+     * @param x {Number} x 横轴坐标（单位 px）
+     * @param y {Number} y 纵轴坐标（单位 px）
+     * @param time {Number} time 滚动动画执行的时长（单位 ms）
+     * @param easing {Object} easing 缓动函数，一般不建议修改，如果想修改，参考源码中的 ease.js 里的写法
+     */
+    scrollBy(x, y, time, easing){
+      if(this.bScroll){
+        this.bScroll.scrollBy(x, y, time, easing);
+      }
+    },
+    /**
+     * 相对于当前位置偏移滚动 x,y 的距离。
+     * @param el {DOM | String} el 滚动到的目标元素, 如果是字符串，则内部会尝试调用 querySelector 转换成 DOM 对象。
+     * @param time {Number} time 滚动动画执行的时长（单位 ms）
+     * @param offsetX {Number | Boolean} offsetX 相对于目标元素的横轴偏移量，如果设置为 true，则滚到目标元素的中心位置
+     * @param offsetY {Number | Boolean} offsetY 相对于目标元素的纵轴偏移量，如果设置为 true，则滚到目标元素的中心位置
+     * @param easing {Object} easing 缓动函数，一般不建议修改，如果想修改，参考源码中的 ease.js 里的写法
+     */
+    scrollToElement(el, time, offsetX, offsetY, easing){
+      if(this.bScroll){
+        this.bScroll.scrollToElement(el, time, offsetX, offsetY, easing);
       }
     },
     // 自动执行下拉刷新
@@ -216,6 +280,13 @@ export default {
         this.pullupData.loading = true;
         this.refresh();
       }
+    },
+    disabled(newVal){
+      if(newVal){
+        this.disable();
+      }else{
+        this.enable();
+      }
     }
   },
   created() {
@@ -223,7 +294,14 @@ export default {
   },
   mounted() {
     if(this.autoInit){
-      this.initScroll();
+      this.initScroll(() => {
+        if(this.disabled){
+          this.disable();
+        }
+      });
     }
+  },
+  beforeDestroy(){
+    this.destroy();
   }
 };
