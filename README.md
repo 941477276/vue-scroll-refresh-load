@@ -179,6 +179,7 @@ export default {
 | `pullUpLoadNoMoreData` | 上拉加载是否已经没有更多数据了 | `Boolean` | `false` |
 | `click` | 是否支持click事件，与better-scroll配置click作用一致 | `Boolean` | `true` |
 | `autoInit` | 是否自动初始化 better-scroll | `Boolean` | `true` |
+| `disabled` | 是否禁用 better-scroll | `Boolean` | 'false' | 
 
 # 组件事件
 | 事件名 | 描述 | 回调参数 |
@@ -195,3 +196,8 @@ export default {
 | `autoPullDownRefresh` | 手动执行下拉刷新操作 | `isLoadDataSuccess`表示下拉刷新数据是否成功，<br>数据类型为`Boolean` | `undefined` |
 | `finishPullDown` | 结束下拉刷新 | 无 | `undefined` |
 | `finishPullUp` | 结束上拉加载 | 无 | `undefined` |
+| `enable` | 启用better-scroll | 无 | `undefined` |
+| `disable` | 禁用better-scroll | 无 | `undefined` |
+| `scrollTo` | 同better-scroll `scrollTo`方法 | `x`, `y`, `time`, `easing` | `undefined` |
+| `scrollBy` | 同better-scroll `scrollBy`方法 | `x`, `y`, `time`, `easing` | `undefined` |
+| `scrollToElement` | 同better-scroll `scrollToElement`方法 | `el`, `time`, `offsetX`, `offsetY`, `easing` | `undefined` |

@@ -287,6 +287,12 @@ export default {
       }else{
         this.enable();
       }
+    },
+    betterScrollConfig: {
+      deep: true,
+      handler(){
+        this.refresh();
+      }
     }
   },
   created() {
