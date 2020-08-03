@@ -141,6 +141,12 @@ export default {
         // 动态改变高度
         this.height = 450;
       }, 1000);
+
+        /*setTimeout(() => {
+          console.log('重置数据了')
+          this.dataList = [];
+          this.pullUpLoadNoMoreData = true;
+        }, 2000);*/
     });
   }
 };

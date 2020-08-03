@@ -180,6 +180,7 @@ export default {
 | `click` | 是否支持click事件，与better-scroll配置click作用一致 | `Boolean` | `true` |
 | `autoInit` | 是否自动初始化 better-scroll | `Boolean` | `true` |
 | `disabled` | 是否禁用 better-scroll | `Boolean` | 'false' | 
+| `dataLoading` | 数据是否加载中，每当这个值改变，better-scroll都会自动刷新 | `Boolean` | 'false' | 
 
 # 组件事件
 | 事件名 | 描述 | 回调参数 |

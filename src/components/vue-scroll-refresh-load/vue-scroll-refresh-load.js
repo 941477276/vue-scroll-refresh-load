@@ -85,6 +85,10 @@ export default {
     disabled: { // 是否禁用滚动
       type: Boolean,
       default: false
+    },
+    dataLoading: { // 数据是否正在加载中，每当dataLoading值改变better-scroll都会自动刷新
+      type: Boolean,
+      default: false
     }
   },
   data(){
@@ -288,6 +292,9 @@ export default {
       }else{
         this.enable();
       }
+    },
+    dataLoading(){
+      this.refresh();
     },
     betterScrollConfig: {
       deep: true,
